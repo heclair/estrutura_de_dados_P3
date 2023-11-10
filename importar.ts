@@ -5,8 +5,8 @@ import { Stack, MyNode } from './stack';
 let conteudoDoArquivo: string; 
 
 //FUNÇÃO DE LEITURA
-function lerArquivoTxt(filePath: string, callback: (error: Error | null, data: string | null) => void) {
-  fs.readFile(filePath, 'utf-8', (err, data) => {
+function lerArquivoTxt(caminhoDoTxt: string, callback: (error: Error | null, data: string | null) => void) {
+  fs.readFile(caminhoDoTxt, 'utf-8', (err, data) => {
     if (err) {
       console.error('Erro ao ler o arquivo:', err);
       callback(err, null);
@@ -20,17 +20,17 @@ function lerArquivoTxt(filePath: string, callback: (error: Error | null, data: s
 
 
 // CAMINHO DO ARQUIVO A SER LIDO
-const filePath = 'txt/input.txt';
+const caminhoDoTxt = 'txt/input.txt';
 
 // CHAMADA DA FUNÇÃO PARA LEITURA
-lerArquivoTxt(filePath, (error, data) => {
+lerArquivoTxt(caminhoDoTxt, (error, data) => {
   if (conteudoDoArquivo !== null) {
     const my_stack = new Stack<string>();
 
     // Divide o conteúdo em palavras e empilha cada palavra
-    const words = conteudoDoArquivo.split(' ');
-    for (const word of words) {
-      my_stack.push(new MyNode<string>(word));
+    const separarPalavras = conteudoDoArquivo.split(' ');
+    for (const palavrasSeparadas of separarPalavras) {
+      my_stack.push(new MyNode<string>(palavrasSeparadas));
     }
 
     console.log('Initial Stack:');
@@ -45,7 +45,7 @@ lerArquivoTxt(filePath, (error, data) => {
     console.log('Texto invertido:');
     console.log(reversedText);
   } else {
-    console.log('conteudoDoArquivo está vazio. Verifique se a leitura do arquivo foi bem-sucedida.');
+    console.log('conteudoDoArquivo está vazio');
   }
 });
 
