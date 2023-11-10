@@ -44,7 +44,7 @@ lerArquivoTxt(caminhoDoTxt, (error, data) => {
     my_stack.print;
 
     let textoInvertido = '';
-    // Desempilhe as palavras e concatene-as em ordem invertida
+    // Desempilhe as palavras e concatenar em ordem invertida
     while (!my_stack.is_empty()) {
       const arrayInvertido = my_stack.pop();
       textoInvertido += arrayInvertido.value + ' ';
