@@ -1,8 +1,19 @@
+/*
+P.4.3. Desenvolva um programa que leia os dados de um arquivo de texto, armazene cada uma
+das palavras em uma pilha, conforme são lidas do arquivo original. A seguir, o programa gera
+um arquivo de saída (colocar o sufixo _out.txt) que contém o texto com as palavras e sinais de
+pontuação em ordem invertida. 
+*/
+
+
 import * as fs from 'fs';
 import { Stack, MyNode } from './stack';
 
 //ARMAZENA DE FORMA GLOBAL O QUE É LIDO DO TXT
 let conteudoDoArquivo: string; 
+
+// CAMINHO DO ARQUIVO A SER LIDO
+const caminhoDoTxt = 'txt/input.txt';
 
 //FUNÇÃO DE LEITURA
 function lerArquivoTxt(caminhoDoTxt: string, callback: (error: Error | null, data: string | null) => void) {
@@ -17,10 +28,6 @@ function lerArquivoTxt(caminhoDoTxt: string, callback: (error: Error | null, dat
     }
   });
 }
-
-
-// CAMINHO DO ARQUIVO A SER LIDO
-const caminhoDoTxt = 'txt/input.txt';
 
 // CHAMADA DA FUNÇÃO PARA LEITURA
 lerArquivoTxt(caminhoDoTxt, (error, data) => {
