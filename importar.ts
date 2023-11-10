@@ -36,18 +36,33 @@ lerArquivoTxt(caminhoDoTxt, (error, data) => {
     console.log('Initial Stack:');
     my_stack.print();
 
-    let reversedText = '';
+    let textoInvertido = '';
     // Desempilhe as palavras e concatene-as em ordem invertida
     while (!my_stack.is_empty()) {
-      reversedText += my_stack.pop().value + ' ';
+      textoInvertido += my_stack.pop().value + ' ';
     }
 
     console.log('Texto invertido:');
-    console.log(reversedText);
+    console.log(textoInvertido);
+
+    fs.writeFile("txt/saida_out.txt", textoInvertido , function(erro) {
+
+      if(erro) {
+          throw erro;
+      }
+  
+      console.log("Arquivo salvo");
+  }); 
   } else {
     console.log('conteudoDoArquivo está vazio');
   }
 });
+
+
+
+
+
+
 
 export{
 lerArquivoTxt, conteudoDoArquivo 
@@ -55,4 +70,8 @@ lerArquivoTxt, conteudoDoArquivo
 
 
 
+
+function textoInvertido(arg0: string, textoInvertido: any, arg2: (erro: NodeJS.ErrnoException | null) => void) {
+  throw new Error('Function not implemented.');
+}
 // USAR FUNÇÃO SPLIT PARA O MY_NODE, PARA CADA ITEM CRIAR UMA INSTANCIA DO MY_NODE DENTRO DE UM FOR, ARMAZENANDO EM UMA PILHA (NEW MY_NODE), DEPOIS DE FINALIZADO UTILIZAR O MY_STACK.POP PARA CONCATENAR A STRING
