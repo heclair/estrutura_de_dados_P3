@@ -41,13 +41,15 @@ lerArquivoTxt(caminhoDoTxt, (error, data) => {
     }
 
     console.log('Initial Stack:');
-    my_stack.print();
+    my_stack.print;
 
     let textoInvertido = '';
     // Desempilhe as palavras e concatene-as em ordem invertida
     while (!my_stack.is_empty()) {
-      textoInvertido += my_stack.pop().value + ' ';
-    }
+      const arrayInvertido = my_stack.pop();
+      textoInvertido += arrayInvertido.value + ' ';
+  }
+  
 
     console.log('Texto invertido:');
     console.log(textoInvertido);
