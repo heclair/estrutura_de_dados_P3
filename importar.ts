@@ -44,13 +44,13 @@ lerArquivoTxt(caminhoDoTxt, (error, data) => {
     my_stack.print;
 
     let textoInvertido = '';
+
     // Desempilhe as palavras e concatenar em ordem invertida
     while (!my_stack.is_empty()) {
       const arrayInvertido = my_stack.pop();
       textoInvertido += arrayInvertido.value + ' ';
   }
   
-
     console.log('Texto invertido:');
     console.log(textoInvertido);
 
@@ -68,19 +68,9 @@ lerArquivoTxt(caminhoDoTxt, (error, data) => {
 });
 
 
-
-
-
-
-
 export{
 lerArquivoTxt, conteudoDoArquivo 
 }
 
 
-
-
-function textoInvertido(arg0: string, textoInvertido: any, arg2: (erro: NodeJS.ErrnoException | null) => void) {
-  throw new Error('Function not implemented.');
-}
 // USAR FUNÇÃO SPLIT PARA O MY_NODE, PARA CADA ITEM CRIAR UMA INSTANCIA DO MY_NODE DENTRO DE UM FOR, ARMAZENANDO EM UMA PILHA (NEW MY_NODE), DEPOIS DE FINALIZADO UTILIZAR O MY_STACK.POP PARA CONCATENAR A STRING
